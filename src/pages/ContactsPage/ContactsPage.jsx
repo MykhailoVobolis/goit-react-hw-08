@@ -8,7 +8,7 @@ import Error from "../../components/Error/Error";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
-import { selectLoading, selectError } from "../../redux/filters/selectors";
+import { selectLoading, selectError } from "../../redux/contacts/selectors";
 
 // import TaskEditor from "../../components/TaskEditor/TaskEditor";
 
