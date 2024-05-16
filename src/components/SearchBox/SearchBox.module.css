@@ -1,0 +1,12 @@
+.container {
+  margin-bottom: 30px;
+}
+
+.inputSearch {
+  width: 330px;
+  background-color: #ffffff;
+  color: #242424;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px 10px;
+}

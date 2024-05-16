@@ -1,0 +1,40 @@
+.container {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 360px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnAdd {
+  padding: 6px 10px;
+  background-color: #efefef;
+  color: #242424;
+  border: solid 1px gray;
+  border-radius: 5px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputValue {
+  background-color: #ffffff;
+  color: #242424;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+}
