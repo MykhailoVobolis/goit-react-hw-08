@@ -9,7 +9,7 @@ export default function HomePage() {
         <PageTitle>
           Phone book welcome page{" "}
           <span role="img" aria-label="Greeting icon">
-            💁‍♀️
+            💁🏼
           </span>
         </PageTitle>
         <p>

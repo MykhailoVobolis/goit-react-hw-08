@@ -10,8 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading, selectError } from "../../redux/contacts/selectors";
 
-// import TaskEditor from "../../components/TaskEditor/TaskEditor";
-
 export default function ContactsPage() {
   const dispatch = useDispatch();
 
@@ -27,12 +25,9 @@ export default function ContactsPage() {
       <PageTitle>Your contacts</PageTitle>
       <ContactForm />
       <SearchBox />
-      {loading && <Loader>Please wait</Loader>}
       {error && <Error>Login to the app</Error>}
       <ContactList />
-      {/* <TaskEditor />
-      <div>{isLoading && "Request in progress..."}</div>
-      <TaskList /> */}
+      {loading && <Loader>Please wait</Loader>}
     </>
   );
 }

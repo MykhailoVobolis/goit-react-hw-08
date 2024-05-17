@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut } from "./operations";
+import { register, logIn, logOut, refreshUser } from "./operations";
 
 const handlePending = (state) => {
   state.loading = true;
@@ -19,6 +19,7 @@ const authSlise = createSlice({
     },
     token: null,
     isLoggedIn: false,
+    isRefrreshing: false,
   },
   extraReducers: (builder) => {
     builder
@@ -54,7 +55,20 @@ const authSlise = createSlice({
         (state.token = null), state.isLoggedIn;
         state.isLoggedIn = false;
       })
-      .addCase(logOut.rejected, handleRejected);
+      .addCase(logOut.rejected, handleRejected)
+      // Обробка операції рефрешу користувача
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefrreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.loading = false;
+        state.isRefrreshing = false;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefrreshing = false;
+      });
   },
 });
 export const authReduser = authSlise.reducer;

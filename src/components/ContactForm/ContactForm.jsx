@@ -57,7 +57,7 @@ export default function ContactForm() {
           </div>
           <div className={css.inputContainer}>
             <label htmlFor={numberFieldId}>Number</label>
-            <Field className={css.inputValue} type="tel" name="number" />
+            <Field className={css.inputValue} type="tel" name="number" placeholder="000-000-0000" />
             <ErrorMessage className={css.error} name="number" component="span" />
           </div>
           <button className={css.btnAdd} type="submit">
