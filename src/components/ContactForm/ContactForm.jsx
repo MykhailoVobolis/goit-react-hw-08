@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
+import { toast } from "react-hot-toast";
 
 import { addContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
@@ -24,7 +25,6 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-
   const nameFieldId = useId(); // Створення ідентифікаторів
   const numberFieldId = useId(); // поліив форми
 
@@ -35,7 +35,14 @@ export default function ContactForm() {
   };
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    dispatch(addContact(values))
+      .unwrap()
+      .then((reponse) => {
+        toast.success("Success!!!");
+      })
+      .catch((error) => {
+        toast.error("Error!!!");
+      });
     actions.resetForm();
   };
 

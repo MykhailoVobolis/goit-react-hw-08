@@ -27,8 +27,8 @@ export default function ContactsPage() {
       <PageTitle>Your contacts</PageTitle>
       <ContactForm />
       <SearchBox />
-      {loading && <Loader>Loading message</Loader>}
-      {error && <Error>Error message</Error>}
+      {loading && <Loader>Please wait</Loader>}
+      {error && <Error>Login to the app</Error>}
       <ContactList />
       {/* <TaskEditor />
       <div>{isLoading && "Request in progress..."}</div>

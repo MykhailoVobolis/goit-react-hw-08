@@ -1,7 +1,8 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations";
 import { toast } from "react-hot-toast";
-// import { logIn } from "../../redux/auth/operations";
+
 import css from "./LoginForm.module.css";
 
 export default function LoginForm() {
@@ -11,13 +12,11 @@ export default function LoginForm() {
     dispatch(logIn(values))
       .unwrap()
       .then((reponse) => {
-        console.log(reponse);
         toast.success("Success!!!");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Log in error!!!");
       });
-
     actions.resetForm();
   };
 
@@ -31,13 +30,15 @@ export default function LoginForm() {
       <Form className={css.form} autoComplete="off">
         <label className={css.label}>
           Email
-          <Field type="email" name="email" />
+          <Field className={css.inputValue} type="email" name="email" />
         </label>
         <label className={css.label}>
           Password
-          <Field type="password" name="password" />
+          <Field className={css.inputValue} type="password" name="password" />
         </label>
-        <button type="submit">Log In</button>
+        <button className={css.btnAdd} type="submit">
+          Log In
+        </button>
       </Form>
     </Formik>
   );

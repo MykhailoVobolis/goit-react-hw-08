@@ -7,3 +7,22 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
+
+.inputValue {
+  background-color: #ffffff;
+  color: #242424;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.btnAdd {
+  padding: 6px 10px;
+  background-color: #efefef;
+  color: #242424;
+  border: solid 1px gray;
+  border-radius: 5px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
