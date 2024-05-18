@@ -10,7 +10,7 @@ export default function SearchBox() {
 
   return (
     <div className={css.container}>
-      <p>Find contacts by name</p>
+      <p className={css.lable}>Find contacts by name or number</p>
       <input
         className={css.inputSearch}
         type="text"

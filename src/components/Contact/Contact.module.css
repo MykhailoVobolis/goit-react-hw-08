@@ -1,5 +1,5 @@
 .container {
-  border: 1px solid black;
+  border: 1px solid #386a91;
   border-radius: 5px;
   padding: 12px;
   display: flex;
@@ -21,8 +21,27 @@
 
 .btnDel {
   padding: 6px 10px;
-  background-color: #efefef;
-  color: #242424;
-  border: solid 1px gray;
+  background-color: #ea546c;
+  background-color: #f27a8a;
+  color: #f4f7fb;
+  border: none;
   border-radius: 5px;
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnAdd {
+  padding: 6px 10px;
+  background-color: #4a83ad;
+  color: #f4f7fb;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnDel:hover {
+  background-color: #d5294d;
+  background-color: #ea546c;
 }

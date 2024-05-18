@@ -2,11 +2,22 @@
   margin-bottom: 30px;
 }
 
+.lable {
+  margin-bottom: 8px;
+}
+
 .inputSearch {
   width: 330px;
   background-color: #ffffff;
-  color: #242424;
-  border: 1px solid black;
+  color: #2e5476;
+  border: 1px solid #4a83ad;
   border-radius: 5px;
   padding: 6px 10px;
+  outline: transparent;
+  outline-offset: 4px;
+}
+
+.inputSearch:hover,
+.inputSearch:active {
+  border-color: #386a91;
 }

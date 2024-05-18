@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <div className={css.container}>
         <PageTitle>
-          Phone book welcome page{" "}
+          Hello! This is your phone book{" "}
           <span role="img" aria-label="Greeting icon">
             💁🏼
           </span>
