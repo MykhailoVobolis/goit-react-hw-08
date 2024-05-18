@@ -10,8 +10,6 @@ export const selectError = (state) => state.contacts.error;
 
 // Мемоізація селекторів
 export const selectFilteredContacts = createSelector([selectContacts, selectSearchQuery], (contacts, filters) => {
-  console.log(contacts);
-  console.log(filters);
   return contacts.items.filter(
     (contact) =>
       contact.name.toLowerCase().includes(filters.name.toLowerCase()) ||
