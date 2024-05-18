@@ -13,9 +13,8 @@ export default function HomePage() {
           </span>
         </PageTitle>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti ea, error quos exercitationem sequi eum
-          impedit sint blanditiis accusantium omnis praesentium pariatur, labore perspiciatis consectetur nesciunt!
-          Delectus excepturi nostrum obcaecati!
+          To start using, please register. After registration, you will be able to add, store and delete your friends'
+          phone numbers. Now your contacts are always with you!
         </p>
       </div>
     </>
