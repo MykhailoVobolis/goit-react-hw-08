@@ -1,11 +1,11 @@
 .container {
   border: 1px solid #386a91;
-  border-radius: 5px;
+  border-radius: 14px;
   padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  width: 360px;
+  width: 330px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
@@ -19,7 +19,7 @@
   background-color: #ffffff;
   color: #2e5476;
   border: 1px solid #4a83ad;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: 6px 10px;
   outline: transparent;
   outline-offset: 4px;
@@ -39,7 +39,7 @@
   background-color: #4a83ad;
   color: #f4f7fb;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   width: 150px;
   margin-left: auto;
   margin-right: auto;
