@@ -1,12 +1,17 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { RiSaveLine } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
 import { useId } from "react";
 import { toast } from "react-hot-toast";
 
-import { addContact } from "../../redux/contacts/operations";
-import { useDispatch } from "react-redux";
+// import { addContact } from "../../redux/contacts/operations";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentContact } from "../../redux/contacts/selectors";
+import { addCurrentContact } from "../../redux/contacts/slice";
 
-import css from "./ContactForm.module.css";
+import css from "./EditForm.module.css";
+import { editContact } from "../../redux/contacts/operations";
 
 // Валідація полів форми
 const regex = {
@@ -23,19 +28,24 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function ContactForm() {
-  const dispatch = useDispatch();
+export default function EditForm() {
   const nameFieldId = useId(); // Створення ідентифікаторів
   const numberFieldId = useId(); // полів форми
 
+  const dispatch = useDispatch();
+  const curentContact = useSelector(selectCurrentContact);
+  const handleClose = () => dispatch(addCurrentContact(null));
+
   // Початкове значення полів форми
   const initialValues = {
-    name: "",
-    number: "",
+    name: curentContact.name,
+    number: curentContact.number,
   };
 
+  const curentContactId = curentContact.id;
+
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values))
+    dispatch(editContact({ curentContactId, values }))
       .unwrap()
       .then((reponse) => {
         toast.success("Success!!!");
@@ -60,9 +70,14 @@ export default function ContactForm() {
             <Field className={css.inputValue} type="tel" name="number" placeholder="000-000-00-00" />
             <ErrorMessage className={css.error} name="number" component="span" />
           </div>
-          <button className={css.btnAdd} type="submit">
-            Add contact
-          </button>
+          <div className={css.btnContainer}>
+            <button className={css.btnSave} type="submit">
+              <RiSaveLine className={css.saveIcon} size={20} />
+            </button>
+            <button className={css.closeBtn}>
+              <MdOutlineCancel className={css.closeIcon} size={20} onClick={handleClose} />
+            </button>
+          </div>
         </Form>
       </Formik>
     </>

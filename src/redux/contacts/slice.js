@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./operations";
+import { fetchContacts, addContact, deleteContact, editContact } from "./operations";
 import { logOut } from "../auth/operations";
 
 const handlePending = (state) => {
@@ -15,9 +15,17 @@ const contactsSlise = createSlice({
   name: "contacts",
   initialState: {
     items: [],
+    currentContact: null,
     loading: false,
     error: null,
   },
+
+  reducers: {
+    addCurrentContact: (state, action) => {
+      state.currentContact = action.payload;
+    },
+  },
+
   // Додаємо обробку зовнішніх екшенів
   extraReducers: (builder) => {
     builder
@@ -54,9 +62,24 @@ const contactsSlise = createSlice({
         state.items = [];
         state.loading = false;
         state.error = null;
-      });
+      })
+
+      // Зміна контакту на mockapi.io
+      .addCase(editContact.pending, handlePending)
+      .addCase(editContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = state.items.map((contact) => {
+          return contact.id === state.currentContact.id ? action.payload : contact;
+        });
+
+        state.currentContact = null;
+      })
+      .addCase(editContact.rejected, handleRejected);
   },
 });
 
 // Експортуємо редюсер
 export const contactsReducer = contactsSlise.reducer;
+
+export const { addCurrentContact } = contactsSlise.actions;

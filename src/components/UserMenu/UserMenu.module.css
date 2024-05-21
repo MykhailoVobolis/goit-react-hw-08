@@ -9,12 +9,12 @@
 }
 
 .logoutBtn {
-  padding: 6px 10px;
+  padding: 8px 10px;
   background-color: #4a83ad;
   color: #f4f7fb;
   border: none;
   border-radius: 6px;
-  width: 8 0px;
+  width: 80px;
   margin-left: auto;
   margin-right: auto;
   transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);

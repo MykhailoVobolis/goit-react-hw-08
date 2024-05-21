@@ -1,4 +1,4 @@
-.form {
+.container {
   border: 1px solid #386a91;
   border-radius: 14px;
   padding: 14px;
@@ -10,7 +10,7 @@
   margin-bottom: 30px;
 }
 
-.label {
+.inputContainer {
   display: flex;
   flex-direction: column;
 }
@@ -19,10 +19,14 @@
   background-color: #ffffff;
   color: #2e5476;
   border: 1px solid #4a83ad;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: 6px 10px;
   outline: transparent;
   outline-offset: 4px;
+}
+
+.inputValue::placeholder {
+  color: #4a83ad;
 }
 
 .inputValue:hover,
@@ -30,18 +34,41 @@
   border-color: #386a91;
 }
 
-.btnAdd {
-  padding: 8px 10px;
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnSave {
+  width: 75px;
+  padding: 8px;
   background-color: #4a83ad;
   color: #f4f7fb;
   border: none;
-  border-radius: 5px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 6px;
   transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnAdd:hover {
+.btnSave:hover {
   background-color: #386a91;
+}
+
+.closeBtn {
+  composes: btnSave;
+  background-color: #f27a8a;
+}
+
+.closeBtn:hover {
+  background-color: #ea546c;
+}
+
+.closeIcon,
+.saveIcon {
+  vertical-align: top;
+}
+
+.error {
+  color: #d5294d;
+  font-size: 16px;
 }

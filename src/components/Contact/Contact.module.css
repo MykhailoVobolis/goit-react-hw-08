@@ -28,14 +28,28 @@
   background-color: #386a91;
 }
 
+.contactName {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.contactNumber {
+  font-size: 20px;
+}
+
 .icon {
   margin-right: 10px;
   vertical-align: text-top;
 }
 
+.btnContainner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .btnDel {
-  padding: 6px 10px;
-  background-color: #ea546c;
+  padding: 8px;
   background-color: #f27a8a;
   color: #f4f7fb;
   border: none;
@@ -43,19 +57,20 @@
   transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btnAdd {
-  padding: 6px 10px;
-  background-color: #4a83ad;
-  color: #f4f7fb;
-  border: none;
-  border-radius: 5px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+.btnDel:hover {
+  background-color: #ea546c;
 }
 
-.btnDel:hover {
-  background-color: #d5294d;
-  background-color: #ea546c;
+.btnEdit {
+  composes: btnDel;
+  background-color: #4a83ad;
+}
+
+.btnEdit:hover {
+  background-color: #386a91;
+}
+
+.editIcon,
+.deletIcon {
+  vertical-align: top;
 }
