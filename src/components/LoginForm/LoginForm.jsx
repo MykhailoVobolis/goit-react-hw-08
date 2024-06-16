@@ -43,6 +43,7 @@ export default function LoginForm() {
     //   </Form>
     // </Formik>
     <Box
+      className={css.mainBox}
       sx={{
         backgroundColor: "#ffffff",
         padding: "36px",

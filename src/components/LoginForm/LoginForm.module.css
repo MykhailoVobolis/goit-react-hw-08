@@ -5,7 +5,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 440px;
+  min-width: 440px;
+  max-width: 440px;
 }
 
 .label {
@@ -42,4 +43,13 @@
 
 .btnAdd:hover {
   background-color: #386a91;
+}
+
+@media screen and (max-width: 767px) {
+  .mainBox {
+    display: block;
+  }
+  .form {
+    min-width: 250px;
+  }
 }
