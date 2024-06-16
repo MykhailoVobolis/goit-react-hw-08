@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading, selectError, selectCurrentContact } from "../../redux/contacts/selectors";
-import { selectFilteredContacts } from "../../redux/filters/selectors";
 import { Fab, Tooltip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import ContactFormModal from "../../components/ContactFormModal/ContactFormModal";
@@ -27,7 +26,6 @@ export default function ContactsPage() {
   const error = useSelector(selectError);
   // const curerentContacts = useSelector(selectCurrentContact);
   const isOpen = useSelector(selectStateModal);
-  const visibleContacts = useSelector(selectFilteredContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -47,7 +45,7 @@ export default function ContactsPage() {
       {/* <PageTitle>Your contacts</PageTitle> */}
       {/* {!curerentContacts ? <ContactForm /> : <EditForm />} */}
       <ContactFormModal isOpen={isOpen} onClose={handleCloseModal} />
-      {visibleContacts.length > 0 && <SearchBox />}
+      <SearchBox />
       {error && <Error>Login to the app</Error>}
       <ContactList />
       {loading && <Loader>Please wait</Loader>}
