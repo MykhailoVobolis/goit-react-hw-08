@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { contactsReducer } from "./contacts/slice";
 import { filtersReducer } from "./filters/slice";
 import { authReduser } from "./auth/slise";
+import { modalReducer } from "./modal/slice";
 
 // Збереження токіна в Local Storage
 const authPersistConfig = {
@@ -20,6 +21,7 @@ export const store = configureStore({
     contacts: contactsReducer,
     filters: filtersReducer,
     auth: persistedAuthReducer,
+    modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

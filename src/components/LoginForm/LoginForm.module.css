@@ -1,13 +1,11 @@
 .form {
-  border: 1px solid #386a91;
+  background-color: #ffffff;
   border-radius: 14px;
-  padding: 14px;
+  padding-top: 44px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  width: 330px;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  gap: 24px;
+  width: 440px;
 }
 
 .label {

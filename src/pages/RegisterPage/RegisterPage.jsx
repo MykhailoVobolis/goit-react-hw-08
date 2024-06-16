@@ -10,7 +10,7 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <PageTitle>Register your account</PageTitle>
+      {/* <PageTitle>Register your account</PageTitle> */}
       <RegistrationForm />
       {loading && <Loader>Please wait</Loader>}
     </div>

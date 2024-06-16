@@ -3,8 +3,12 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { toast } from "react-hot-toast";
 
-import { addContact } from "../../redux/contacts/operations";
+import { TextField, Button, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contacts/operations";
+import { closeModal } from "../../redux/modal/slice";
+// import MaskedInput from "../MaskedInput/MaskedInput";
 
 import css from "./ContactForm.module.css";
 
@@ -43,12 +47,17 @@ export default function ContactForm() {
       .catch((error) => {
         toast.error("Error!!!");
       });
+    dispatch(closeModal());
     actions.resetForm();
+  };
+
+  const handleClose = () => {
+    dispatch(closeModal());
   };
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+      {/* <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
         <Form className={css.container}>
           <div className={css.inputContainer}>
             <label htmlFor={nameFieldId}>Name</label>
@@ -63,6 +72,41 @@ export default function ContactForm() {
           <button className={css.btnAdd} type="submit">
             Add contact
           </button>
+        </Form>
+      </Formik> */}
+
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+        <Form className={css.container}>
+          <IconButton sx={{ width: "40px", marginLeft: "auto" }} onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+          <div className={css.inputContainer}>
+            <Field as={TextField} id={nameFieldId} label="Name" type="text" name="name" size="small" required />
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div className={css.inputContainer}>
+            <Field
+              as={TextField}
+              id={numberFieldId}
+              label="Number"
+              type="tel"
+              name="number"
+              // component={MaskedInput}
+              // mask="+{38}(000)000-00-00"
+              // placeholder="+38(000)000-00-00"
+              placeholder="000-000-00-00"
+              size="small"
+              required
+            />
+            <ErrorMessage className={css.error} name="number" component="span" />
+          </div>
+          <Button
+            variant="contained"
+            size="large"
+            type={"submit"}
+            sx={{ width: "150px", marginLeft: "auto", marginRight: "auto", borderRadius: "42px" }}>
+            Add contact
+          </Button>
         </Form>
       </Formik>
     </>

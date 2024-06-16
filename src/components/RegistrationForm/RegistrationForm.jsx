@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
+import { TextField, Button, Box, Typography } from "@mui/material";
 
 import { register } from "../../redux/auth/operations";
 
@@ -22,30 +23,74 @@ export default function RegistrationForm() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        email: "",
-        password: "",
-      }}
-      onSubmit={handleSubmit}>
-      <Form className={css.form} autoComplete="off">
-        <label className={css.label}>
-          Username
-          <Field className={css.inputValue} type="text" name="name" />
-        </label>
-        <label className={css.label}>
-          Email
-          <Field className={css.inputValue} type="email" name="email" />
-        </label>
-        <label className={css.label}>
-          Password
-          <Field className={css.inputValue} type="password" name="password" />
-        </label>
-        <button className={css.btnAdd} type="submit">
-          Register
-        </button>
-      </Form>
-    </Formik>
+    // <Formik
+    //   initialValues={{
+    //     name: "",
+    //     email: "",
+    //     password: "",
+    //   }}
+    //   onSubmit={handleSubmit}>
+    //   <Form className={css.form} autoComplete="off">
+    //     <label className={css.label}>
+    //       Username
+    //       <Field className={css.inputValue} type="text" name="name" />
+    //     </label>
+    //     <label className={css.label}>
+    //       Email
+    //       <Field className={css.inputValue} type="email" name="email" />
+    //     </label>
+    //     <label className={css.label}>
+    //       Password
+    //       <Field className={css.inputValue} type="password" name="password" />
+    //     </label>
+    //     <button className={css.btnAdd} type="submit">
+    //       Register
+    //     </button>
+    //   </Form>
+    // </Formik>
+    <Box
+      sx={{
+        backgroundColor: "#ffffff",
+        padding: "36px",
+        marginTop: "120px",
+        borderRadius: "28px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}>
+      <Box>
+        <Typography variant="h4" sx={{ paddingTop: "34px", fontSize: "40px", marginBottom: "12px", maxWidth: "400px" }}>
+          Create a Phonebook Account
+        </Typography>
+        <Typography variant="body1">Enter your name and email</Typography>
+      </Box>
+
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}>
+        <Form className={css.form} autoComplete="off">
+          <Field as={TextField} label="Username" type="text" name="name" autoFocus required />
+          <Field as={TextField} label="Email" type="email" name="email" required />
+          <Field
+            as={TextField}
+            label="Password"
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            required
+          />
+          <Button
+            variant="contained"
+            size="large"
+            type={"submit"}
+            sx={{ width: "110px", marginLeft: "auto", borderRadius: "42px" }}>
+            Next
+          </Button>
+        </Form>
+      </Formik>
+    </Box>
   );
 }

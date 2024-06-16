@@ -4,11 +4,13 @@ import { RiSaveLine } from "react-icons/ri";
 import { MdOutlineCancel } from "react-icons/md";
 import { useId } from "react";
 import { toast } from "react-hot-toast";
+import { TextField, Button, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
-// import { addContact } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentContact } from "../../redux/contacts/selectors";
 import { addCurrentContact } from "../../redux/contacts/slice";
+import { closeModal } from "../../redux/modal/slice";
 
 import css from "./EditForm.module.css";
 import { editContact } from "../../redux/contacts/operations";
@@ -34,7 +36,10 @@ export default function EditForm() {
 
   const dispatch = useDispatch();
   const curentContact = useSelector(selectCurrentContact);
-  const handleClose = () => dispatch(addCurrentContact(null));
+  const handleClose = () => {
+    dispatch(addCurrentContact(null));
+    dispatch(closeModal());
+  };
 
   // Початкове значення полів форми
   const initialValues = {
@@ -53,12 +58,13 @@ export default function EditForm() {
       .catch((error) => {
         toast.error("Error!!!");
       });
+    dispatch(closeModal());
     actions.resetForm();
   };
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+      {/* <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
         <Form className={css.container}>
           <div className={css.inputContainer}>
             <label htmlFor={nameFieldId}>Name</label>
@@ -77,6 +83,47 @@ export default function EditForm() {
             <button className={css.closeBtn}>
               <MdOutlineCancel className={css.closeIcon} size={20} onClick={handleClose} />
             </button>
+          </div>
+        </Form>
+      </Formik> */}
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+        <Form className={css.container}>
+          <IconButton sx={{ width: "40px", marginLeft: "auto" }} onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+          <div className={css.inputContainer}>
+            <Field as={TextField} id={nameFieldId} label="Name" type="text" name="name" size="small" />
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div className={css.inputContainer}>
+            <Field
+              as={TextField}
+              id={numberFieldId}
+              label="Number"
+              type="tel"
+              name="number"
+              placeholder="000-000-00-00"
+              size="small"
+            />
+            <ErrorMessage className={css.error} name="number" component="span" />
+          </div>
+          <div className={css.btnContainer}>
+            <Button
+              variant="contained"
+              type="submit"
+              size="large"
+              sx={{ width: "158px", marginLeft: "auto", marginRight: "auto", borderRadius: "40px" }}>
+              Save Contact
+              {/* <RiSaveLine className={css.saveIcon} size={24} /> */}
+            </Button>
+            {/* <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              sx={{ borderRadius: "40px" }}
+              onClick={handleClose}>
+              <MdOutlineCancel className={css.closeIcon} size={24} />
+            </Button> */}
           </div>
         </Form>
       </Formik>

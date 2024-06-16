@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <PageTitle>Please log in</PageTitle>
+      {/* <PageTitle>Please log in</PageTitle> */}
       <LoginForm />
       {loading && <Loader>Please wait</Loader>}
     </div>
