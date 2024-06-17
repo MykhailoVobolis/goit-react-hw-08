@@ -14,7 +14,7 @@ export default function RegistrationForm() {
     dispatch(register(values))
       .unwrap()
       .then((reponse) => {
-        toast.success("Success!!!");
+        // toast.success("Success!!!");
       })
       .catch((error) => {
         toast.error("Registration error!!!");
@@ -23,31 +23,6 @@ export default function RegistrationForm() {
   };
 
   return (
-    // <Formik
-    //   initialValues={{
-    //     name: "",
-    //     email: "",
-    //     password: "",
-    //   }}
-    //   onSubmit={handleSubmit}>
-    //   <Form className={css.form} autoComplete="off">
-    //     <label className={css.label}>
-    //       Username
-    //       <Field className={css.inputValue} type="text" name="name" />
-    //     </label>
-    //     <label className={css.label}>
-    //       Email
-    //       <Field className={css.inputValue} type="email" name="email" />
-    //     </label>
-    //     <label className={css.label}>
-    //       Password
-    //       <Field className={css.inputValue} type="password" name="password" />
-    //     </label>
-    //     <button className={css.btnAdd} type="submit">
-    //       Register
-    //     </button>
-    //   </Form>
-    // </Formik>
     <div className={css.container}>
       <Box
         className={css.mainBox}

@@ -15,7 +15,6 @@ import css from "./ContactForm.module.css";
 // Валідація полів форми
 const regex = {
   // Регулярні вираз для поля форми Number
-  // phoneNumber: /^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
   phoneNumber: /^[+]{1}[0-9]{2}[(]{1}[0-9]{3}[)]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
 };
 
@@ -25,7 +24,6 @@ const FeedbackSchema = Yup.object().shape({
   number: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
-    // .matches(regex.phoneNumber, "Number format: 000-000-00-00")
     .matches(regex.phoneNumber, "Number format: +38(000)000-00-00")
     .required("Required"),
 });
@@ -60,24 +58,6 @@ export default function ContactForm() {
 
   return (
     <>
-      {/* <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
-        <Form className={css.container}>
-          <div className={css.inputContainer}>
-            <label htmlFor={nameFieldId}>Name</label>
-            <Field className={css.inputValue} type="text" name="name" />
-            <ErrorMessage className={css.error} name="name" component="span" />
-          </div>
-          <div className={css.inputContainer}>
-            <label htmlFor={numberFieldId}>Number</label>
-            <Field className={css.inputValue} type="tel" name="number" placeholder="000-000-00-00" />
-            <ErrorMessage className={css.error} name="number" component="span" />
-          </div>
-          <button className={css.btnAdd} type="submit">
-            Add contact
-          </button>
-        </Form>
-      </Formik> */}
-
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
         <Form className={css.container}>
           <IconButton sx={{ width: "40px", marginLeft: "auto" }} onClick={handleClose}>
@@ -97,14 +77,12 @@ export default function ContactForm() {
           </div>
           <div className={css.inputContainer}>
             <Field
-              // as={TextField}
               id={numberFieldId}
               label="Number"
               type="tel"
               name="number"
               component={MaskedInput}
               placeholder="+38(___)___-__-__"
-              // placeholder="000-000-00-00"
               // size="small"
               required
             />

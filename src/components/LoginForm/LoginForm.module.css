@@ -1,3 +1,11 @@
+.container {
+  min-width: 360px;
+  max-width: 1046px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
 .form {
   background-color: #ffffff;
   border-radius: 14px;
@@ -5,51 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  min-width: 440px;
   max-width: 440px;
-}
-
-.label {
-  display: flex;
-  flex-direction: column;
-}
-
-.inputValue {
-  background-color: #ffffff;
-  color: #2e5476;
-  border: 1px solid #4a83ad;
-  border-radius: 5px;
-  padding: 6px 10px;
-  outline: transparent;
-  outline-offset: 4px;
-}
-
-.inputValue:hover,
-.inputValue:active {
-  border-color: #386a91;
-}
-
-.btnAdd {
-  padding: 8px 10px;
-  background-color: #4a83ad;
-  color: #f4f7fb;
-  border: none;
-  border-radius: 5px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btnAdd:hover {
-  background-color: #386a91;
-}
-
-.container {
-  max-width: 1046px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 15px;
 }
 
 @media screen and (max-width: 767px) {

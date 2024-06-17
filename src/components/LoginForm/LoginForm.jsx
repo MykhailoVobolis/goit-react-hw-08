@@ -22,26 +22,6 @@ export default function LoginForm() {
   };
 
   return (
-    // <Formik
-    //   initialValues={{
-    //     email: "",
-    //     password: "",
-    //   }}
-    //   onSubmit={handleSubmit}>
-    //   <Form className={css.form} autoComplete="off">
-    //     <label className={css.label}>
-    //       Email
-    //       <Field className={css.inputValue} type="email" name="email" />
-    //     </label>
-    //     <label className={css.label}>
-    //       Password
-    //       <Field className={css.inputValue} type="password" name="password" />
-    //     </label>
-    //     <button className={css.btnAdd} type="submit">
-    //       Log In
-    //     </button>
-    //   </Form>
-    // </Formik>
     <div className={css.container}>
       <Box
         className={css.mainBox}
