@@ -41,7 +41,7 @@ export default function ContactsPage() {
   };
 
   return (
-    <div>
+    <div className={css.contactsContainer}>
       {/* <PageTitle>Your contacts</PageTitle> */}
       {/* {!curerentContacts ? <ContactForm /> : <EditForm />} */}
       <ContactFormModal isOpen={isOpen} onClose={handleCloseModal} />

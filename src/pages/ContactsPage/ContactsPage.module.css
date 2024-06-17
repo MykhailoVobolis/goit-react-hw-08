@@ -1,1 +1,17 @@
+.contactsContainer {
+  max-width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+@media screen and (min-width: 768px) {
+  .contactsContainer {
+    max-width: 672px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .contactsContainer {
+    max-width: 1014px;
+  }
+}
