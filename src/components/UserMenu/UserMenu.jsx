@@ -48,7 +48,7 @@ export default function UserMenu() {
         <Avatar
           aria-label="user"
           sx={{
-            bgcolor: stringToColor(name),
+            bgcolor: stringToColor(user.name),
             width: 36,
             height: 36,
           }}>
