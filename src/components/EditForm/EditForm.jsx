@@ -57,7 +57,7 @@ export default function EditForm() {
     dispatch(editContact({ curentContactId, values }))
       .unwrap()
       .then((reponse) => {
-        toast.success("Success!!!");
+        // toast.success("Success!!!");
       })
       .catch((error) => {
         toast.error("Error!!!");
@@ -96,7 +96,14 @@ export default function EditForm() {
             <CloseIcon />
           </IconButton>
           <div className={css.inputContainer}>
-            <Field as={TextField} id={nameFieldId} label="Name" type="text" name="name" size="small" />
+            <Field
+              as={TextField}
+              id={nameFieldId}
+              label="Name"
+              type="text"
+              name="name"
+              //  size="small"
+            />
             <ErrorMessage className={css.error} name="name" component="span" />
           </div>
           <div className={css.inputContainer}>
@@ -109,7 +116,7 @@ export default function EditForm() {
               component={MaskedInput}
               placeholder="+38(___)___-__-__"
               // placeholder="000-000-00-00"
-              size="small"
+              // size="small"
             />
             <ErrorMessage className={css.error} name="number" component="span" />
           </div>

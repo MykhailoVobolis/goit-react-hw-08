@@ -13,7 +13,7 @@ export default function LoginForm() {
     dispatch(logIn(values))
       .unwrap()
       .then((reponse) => {
-        toast.success("Success!!!");
+        // toast.success("Success!!!");
       })
       .catch((error) => {
         toast.error("Log in error!!!");
@@ -42,47 +42,49 @@ export default function LoginForm() {
     //     </button>
     //   </Form>
     // </Formik>
-    <Box
-      className={css.mainBox}
-      sx={{
-        backgroundColor: "#ffffff",
-        padding: "36px",
-        marginTop: "120px",
-        borderRadius: "28px",
-        display: "flex",
-        justifyContent: "space-between",
-      }}>
-      <Box>
-        <Typography variant="h4" sx={{ paddingTop: "34px", fontSize: "40px", marginBottom: "12px" }}>
-          Sign in
-        </Typography>
-        <Typography variant="body1">to continue to Phonebook</Typography>
+    <div className={css.container}>
+      <Box
+        className={css.mainBox}
+        sx={{
+          backgroundColor: "#ffffff",
+          padding: "36px",
+          marginTop: "120px",
+          borderRadius: "28px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}>
+        <Box>
+          <Typography variant="h4" sx={{ paddingTop: "34px", fontSize: "40px", marginBottom: "12px" }}>
+            Sign in
+          </Typography>
+          <Typography variant="body1">to continue to Phonebook</Typography>
+        </Box>
+        <Formik
+          initialValues={{
+            email: "",
+            password: "",
+          }}
+          onSubmit={handleSubmit}>
+          <Form className={css.form} autoComplete="off">
+            <Field as={TextField} label="Email" type="email" name="email" autoFocus required />
+            <Field
+              as={TextField}
+              label="Password"
+              type="password"
+              name="password"
+              autoComplete="current-password"
+              required
+            />
+            <Button
+              variant="contained"
+              size="large"
+              type={"submit"}
+              sx={{ width: "110px", marginLeft: "auto", borderRadius: "42px" }}>
+              Next
+            </Button>
+          </Form>
+        </Formik>
       </Box>
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-        }}
-        onSubmit={handleSubmit}>
-        <Form className={css.form} autoComplete="off">
-          <Field as={TextField} label="Email" type="email" name="email" autoFocus required />
-          <Field
-            as={TextField}
-            label="Password"
-            type="password"
-            name="password"
-            autoComplete="current-password"
-            required
-          />
-          <Button
-            variant="contained"
-            size="large"
-            type={"submit"}
-            sx={{ width: "110px", marginLeft: "auto", borderRadius: "42px" }}>
-            Next
-          </Button>
-        </Form>
-      </Formik>
-    </Box>
+    </div>
   );
 }

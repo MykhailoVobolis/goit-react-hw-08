@@ -5,7 +5,7 @@ import css from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <>
+    <div className={css.container}>
       {/* <div className={css.container}>
         <PageTitle>
           Hello! This is your phone book{" "}
@@ -35,6 +35,6 @@ export default function HomePage() {
           </Typography>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
