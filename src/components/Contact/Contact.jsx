@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 import { stringToColor } from "../../helpers/toColor";
 
-import { Avatar, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, IconButton, Link, Typography } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -70,7 +70,10 @@ export default function Contact({ contacts: { id, name, number } }) {
           </Typography>
           <Typography variant="body1" sx={{ display: "flex", alignItems: "center", gap: "18px", marginLeft: "8px" }}>
             <PhoneIcon />
-            {number}
+            <Link href={`tel:${number}`} underline="none" color="inherit">
+              {number}
+            </Link>
+            {/* {number} */}
           </Typography>
         </CardContent>
         <CardActions sx={{ padding: "0", alignItems: "start" }}>
