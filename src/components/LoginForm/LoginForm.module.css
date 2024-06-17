@@ -13,15 +13,24 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  min-width: 440px;
+  min-width: 250px;
   max-width: 440px;
 }
 
-@media screen and (max-width: 767px) {
+.mainBox {
+  background-color: #ffffff;
+  padding: 36px;
+  margin-top: 120px;
+  border-radius: 28px;
+}
+
+@media screen and (min-width: 768px) {
   .mainBox {
-    display: block;
+    display: flex;
+    justify-content: space-between;
   }
+
   .form {
-    min-width: 250px;
+    min-width: 440px;
   }
 }

@@ -24,16 +24,7 @@ export default function RegistrationForm() {
 
   return (
     <div className={css.container}>
-      <Box
-        className={css.mainBox}
-        sx={{
-          backgroundColor: "#ffffff",
-          padding: "36px",
-          marginTop: "120px",
-          borderRadius: "28px",
-          display: "flex",
-          justifyContent: "space-between",
-        }}>
+      <Box className={css.mainBox}>
         <Box>
           <Typography
             variant="h4"

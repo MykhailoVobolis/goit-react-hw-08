@@ -23,16 +23,7 @@ export default function LoginForm() {
 
   return (
     <div className={css.container}>
-      <Box
-        className={css.mainBox}
-        sx={{
-          backgroundColor: "#ffffff",
-          padding: "36px",
-          marginTop: "120px",
-          borderRadius: "28px",
-          display: "flex",
-          justifyContent: "space-between",
-        }}>
+      <Box className={css.mainBox}>
         <Box>
           <Typography variant="h4" sx={{ paddingTop: "34px", fontSize: "40px", marginBottom: "12px" }}>
             Sign in
