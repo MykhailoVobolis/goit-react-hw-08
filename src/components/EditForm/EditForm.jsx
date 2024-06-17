@@ -14,10 +14,13 @@ import { closeModal } from "../../redux/modal/slice";
 
 import css from "./EditForm.module.css";
 import { editContact } from "../../redux/contacts/operations";
+import MaskedInput from "../MaskedInput/MaskedInput";
 
 // Валідація полів форми
 const regex = {
-  phoneNumber: /^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/, // Регулярні вираз для поля форми Number
+  // Регулярні вираз для поля форми Number
+  // phoneNumber: /^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
+  phoneNumber: /^[+]{1}[0-9]{2}[(]{1}[0-9]{3}[)]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
 };
 
 // Об'єкт Yup валідації полів форми
@@ -26,7 +29,8 @@ const FeedbackSchema = Yup.object().shape({
   number: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
-    .matches(regex.phoneNumber, "Number format: 000-000-00-00")
+    // .matches(regex.phoneNumber, "Number format: 000-000-00-00")
+    .matches(regex.phoneNumber, "Number format: +38(000)000-00-00")
     .required("Required"),
 });
 
@@ -97,12 +101,14 @@ export default function EditForm() {
           </div>
           <div className={css.inputContainer}>
             <Field
-              as={TextField}
+              // as={TextField}
               id={numberFieldId}
               label="Number"
               type="tel"
               name="number"
-              placeholder="000-000-00-00"
+              component={MaskedInput}
+              placeholder="+38(___)___-__-__"
+              // placeholder="000-000-00-00"
               size="small"
             />
             <ErrorMessage className={css.error} name="number" component="span" />

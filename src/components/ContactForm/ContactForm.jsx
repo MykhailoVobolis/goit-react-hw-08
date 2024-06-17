@@ -8,13 +8,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { closeModal } from "../../redux/modal/slice";
-// import MaskedInput from "../MaskedInput/MaskedInput";
+import MaskedInput from "../MaskedInput/MaskedInput";
 
 import css from "./ContactForm.module.css";
 
 // Валідація полів форми
 const regex = {
-  phoneNumber: /^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/, // Регулярні вираз для поля форми Number
+  // Регулярні вираз для поля форми Number
+  // phoneNumber: /^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
+  phoneNumber: /^[+]{1}[0-9]{2}[(]{1}[0-9]{3}[)]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
 };
 
 // Об'єкт Yup валідації полів форми
@@ -23,7 +25,8 @@ const FeedbackSchema = Yup.object().shape({
   number: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
-    .matches(regex.phoneNumber, "Number format: 000-000-00-00")
+    // .matches(regex.phoneNumber, "Number format: 000-000-00-00")
+    .matches(regex.phoneNumber, "Number format: +38(000)000-00-00")
     .required("Required"),
 });
 
@@ -86,15 +89,14 @@ export default function ContactForm() {
           </div>
           <div className={css.inputContainer}>
             <Field
-              as={TextField}
+              // as={TextField}
               id={numberFieldId}
               label="Number"
               type="tel"
               name="number"
-              // component={MaskedInput}
-              // mask="+{38}(000)000-00-00"
-              // placeholder="+38(000)000-00-00"
-              placeholder="000-000-00-00"
+              component={MaskedInput}
+              placeholder="+38(___)___-__-__"
+              // placeholder="000-000-00-00"
               size="small"
               required
             />
