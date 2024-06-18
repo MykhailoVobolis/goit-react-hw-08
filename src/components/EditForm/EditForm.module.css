@@ -14,59 +14,6 @@
   flex-direction: column;
 }
 
-.inputValue {
-  background-color: #ffffff;
-  color: #2e5476;
-  border: 1px solid #4a83ad;
-  border-radius: 6px;
-  padding: 6px 10px;
-  outline: transparent;
-  outline-offset: 4px;
-}
-
-.inputValue::placeholder {
-  color: #4a83ad;
-}
-
-.inputValue:hover,
-.inputValue:active {
-  border-color: #386a91;
-}
-
-.btnContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.btnSave {
-  width: 75px;
-  padding: 8px;
-  background-color: #4a83ad;
-  color: #f4f7fb;
-  border: none;
-  border-radius: 6px;
-  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btnSave:hover {
-  background-color: #386a91;
-}
-
-.closeBtn {
-  composes: btnSave;
-  background-color: #f27a8a;
-}
-
-.closeBtn:hover {
-  background-color: #ea546c;
-}
-
-.closeIcon,
-.saveIcon {
-  vertical-align: top;
-}
-
 .error {
   color: #d5294d;
   font-size: 14px;

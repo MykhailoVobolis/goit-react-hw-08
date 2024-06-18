@@ -29,9 +29,6 @@ const MaskedInput = ({ field, form, ...props }) => {
           onBlur: field.onBlur,
         },
       }}
-      //   onBlur={() => form.setFieldTouched(field.name, true)}
-      //   error={Boolean(form.errors[field.name] && form.touched[field.name])}
-      //   helperText={form.errors[field.name] && form.touched[field.name] ? form.errors[field.name] : ""}
     />
   );
 };

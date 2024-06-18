@@ -2,12 +2,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
 import { toast } from "react-hot-toast";
-
 import { TextField, Button, IconButton } from "@mui/material";
+
 import CloseIcon from "@mui/icons-material/Close";
+
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { closeModal } from "../../redux/modal/slice";
+
 import MaskedInput from "../MaskedInput/MaskedInput";
 
 import css from "./ContactForm.module.css";
@@ -64,15 +66,7 @@ export default function ContactForm() {
             <CloseIcon />
           </IconButton>
           <div className={css.inputContainer}>
-            <Field
-              as={TextField}
-              id={nameFieldId}
-              label="Name"
-              type="text"
-              name="name"
-              //  size="small"
-              required
-            />
+            <Field as={TextField} id={nameFieldId} label="Name" type="text" name="name" required />
             <ErrorMessage className={css.error} name="name" component="span" />
           </div>
           <div className={css.inputContainer}>
@@ -83,7 +77,6 @@ export default function ContactForm() {
               name="number"
               component={MaskedInput}
               placeholder="+38(___)___-__-__"
-              // size="small"
               required
             />
             <ErrorMessage className={css.error} name="number" component="span" />

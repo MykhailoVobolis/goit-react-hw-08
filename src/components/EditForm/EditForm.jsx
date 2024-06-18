@@ -3,16 +3,18 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { toast } from "react-hot-toast";
 import { TextField, Button, IconButton } from "@mui/material";
+
 import CloseIcon from "@mui/icons-material/Close";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentContact } from "../../redux/contacts/selectors";
 import { addCurrentContact } from "../../redux/contacts/slice";
 import { closeModal } from "../../redux/modal/slice";
+import { editContact } from "../../redux/contacts/operations";
+
+import MaskedInput from "../MaskedInput/MaskedInput";
 
 import css from "./EditForm.module.css";
-import { editContact } from "../../redux/contacts/operations";
-import MaskedInput from "../MaskedInput/MaskedInput";
 
 // Валідація полів форми
 const regex = {

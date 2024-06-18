@@ -11,13 +11,6 @@ export default function SearchBox() {
 
   return (
     <div className={css.container}>
-      {/* <p className={css.lable}>Find contacts by name or number</p>
-      <input
-        className={css.inputSearch}
-        type="text"
-        value={value}
-        onChange={(e) => dispatch(setStatusFilter(e.target.value))}
-      /> */}
       <TextField
         variant="standard"
         label="Find contacts by name or number"

@@ -37,11 +37,6 @@ export default function ContactFormModal({ isOpen, onClose }) {
         afterOpen: css.openedModalContainer,
         beforeClose: css.closedModalContainer,
       }}
-      //   className={{
-      //     base: css.modalContent,
-      //     afterOpen: css.openedModalContent,
-      //     beforeClose: css.closedModalContent,
-      //   }}
       style={modalStyles}
       closeTimeoutMS={500}
       onRequestClose={onClose}>

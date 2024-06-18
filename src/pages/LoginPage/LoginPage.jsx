@@ -1,4 +1,3 @@
-import PageTitle from "../../components/PageTitle/PageTitle";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import Loader from "../../components/Loader/Loader";
 
@@ -10,7 +9,6 @@ export default function LoginPage() {
 
   return (
     <div>
-      {/* <PageTitle>Please log in</PageTitle> */}
       <LoginForm />
       {loading && <Loader>Please wait</Loader>}
     </div>

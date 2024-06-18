@@ -1,5 +1,8 @@
-import { FaUser, FaPhone } from "react-icons/fa6";
-import { RiDeleteBinLine, RiEdit2Line } from "react-icons/ri";
+import { Avatar, Card, CardActions, CardContent, IconButton, Link, Typography } from "@mui/material";
+
+import PhoneIcon from "@mui/icons-material/Phone";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { deleteContact } from "../../redux/contacts/operations";
 import { addCurrentContact } from "../../redux/contacts/slice";
@@ -7,13 +10,6 @@ import { openModal } from "../../redux/modal/slice";
 import { useDispatch } from "react-redux";
 
 import { stringToColor } from "../../helpers/toColor";
-
-import { Avatar, Card, CardActions, CardContent, IconButton, Link, Typography } from "@mui/material";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import PhoneIcon from "@mui/icons-material/Phone";
-
-import css from "./Contact.module.css";
 
 export default function Contact({ contacts: { id, name, number } }) {
   const dispatch = useDispatch();
@@ -25,30 +21,7 @@ export default function Contact({ contacts: { id, name, number } }) {
   };
 
   return (
-    <div
-    // className={css.mainContainer}
-    >
-      {/* <div className={css.border}></div>
-      <div className={css.container}>
-        <div className={css.containerItem}>
-          <p className={css.contactName}>
-            <FaUser className={css.icon} />
-            {name}
-          </p>
-          <p className={css.contactNumber}>
-            <FaPhone className={css.icon} />
-            {number}
-          </p>
-        </div>
-        <div className={css.btnContainner}>
-          <button className={css.btnEdit}>
-            <RiEdit2Line className={css.editIcon} onClick={handleEdit} size={20} />
-          </button>
-          <button className={css.btnDel} onClick={handleDelete}>
-            <RiDeleteBinLine className={css.deletIcon} size={20} />
-          </button>
-        </div>
-      </div> */}
+    <div>
       <Card sx={{ width: 330, display: "flex", justifyContent: "space-between", padding: "12px" }}>
         <CardContent
           sx={{ display: "flex", flexDirection: "column", gap: "4px", justifyContent: "center", padding: "0" }}>
@@ -69,19 +42,20 @@ export default function Contact({ contacts: { id, name, number } }) {
             {name}
           </Typography>
           <Typography variant="body1" sx={{ display: "flex", alignItems: "center", gap: "18px", marginLeft: "8px" }}>
-            <PhoneIcon />
+            <PhoneIcon sx={{ fill: "rgba(0, 0, 0, 0.54)" }} />
             <Link href={`tel:${number}`} underline="none" color="inherit">
               {number}
             </Link>
-            {/* {number} */}
           </Typography>
         </CardContent>
-        <CardActions sx={{ padding: "0", alignItems: "start" }}>
+        <CardActions
+          sx={{ padding: "0", alignItems: "start", display: "flex", flexDirection: "column" }}
+          disableSpacing>
           <IconButton aria-label="edit contact" sx={{ minWidth: "36px", padding: "8px" }} onClick={handleEdit}>
-            <EditOutlinedIcon sx={{ width: "24px", height: "24px" }} />
+            <EditIcon sx={{ width: "24px", height: "24px" }} />
           </IconButton>
           <IconButton aria-label="delet contact" sx={{ minWidth: "36px", padding: "8px" }} onClick={handleDelete}>
-            <DeleteOutlinedIcon sx={{ width: "24px", height: "24px" }} />
+            <DeleteIcon sx={{ width: "24px", height: "24px" }} />
           </IconButton>
         </CardActions>
       </Card>
