@@ -36,7 +36,7 @@ export default function Contact({ contacts: { id, name, number } }) {
             <Avatar
               aria-label="recipe"
               sx={{
-                // bgcolor: stringToColor(name),
+                bgcolor: stringToColor(name),
                 width: 36,
                 height: 36,
               }}>
