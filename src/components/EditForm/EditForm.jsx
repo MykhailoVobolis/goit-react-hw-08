@@ -72,14 +72,7 @@ export default function EditForm() {
             <CloseIcon />
           </IconButton>
           <div className={css.inputContainer}>
-            <Field
-              as={TextField}
-              id={nameFieldId}
-              label="Name"
-              type="text"
-              name="name"
-              //  size="small"
-            />
+            <Field as={TextField} id={nameFieldId} label="Name" type="text" name="name" />
             <ErrorMessage className={css.error} name="name" component="span" />
           </div>
           <div className={css.inputContainer}>
@@ -90,7 +83,6 @@ export default function EditForm() {
               name="number"
               component={MaskedInput}
               placeholder="+38(___)___-__-__"
-              // size="small"
             />
             <ErrorMessage className={css.error} name="number" component="span" />
           </div>

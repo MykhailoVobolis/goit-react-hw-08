@@ -1,9 +1,10 @@
 import Modal from "react-modal";
 import ContactForm from "../ContactForm/ContactForm";
 import EditForm from "../EditForm/EditForm";
+import DeleteForm from "../DeleteForm/DeleteForm";
 
 import { useSelector } from "react-redux";
-import { selectCurrentContact } from "../../redux/contacts/selectors";
+import { selectCurrentContact, selectCurrentDeleteContact } from "../../redux/contacts/selectors";
 
 import css from "./ContactFormModal.module.css";
 
@@ -28,6 +29,7 @@ const modalStyles = {
 
 export default function ContactFormModal({ isOpen, onClose }) {
   const curerentContacts = useSelector(selectCurrentContact);
+  const curentDeleteContact = useSelector(selectCurrentDeleteContact);
 
   return (
     <Modal
@@ -40,7 +42,7 @@ export default function ContactFormModal({ isOpen, onClose }) {
       style={modalStyles}
       closeTimeoutMS={500}
       onRequestClose={onClose}>
-      {!curerentContacts ? <ContactForm /> : <EditForm />}
+      {curerentContacts ? <EditForm /> : curentDeleteContact ? <DeleteForm /> : <ContactForm />}
     </Modal>
   );
 }

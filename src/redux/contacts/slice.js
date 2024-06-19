@@ -16,6 +16,7 @@ const contactsSlise = createSlice({
   initialState: {
     items: [],
     currentContact: null,
+    currentDeleteContact: null,
     loading: false,
     error: null,
   },
@@ -23,6 +24,9 @@ const contactsSlise = createSlice({
   reducers: {
     addCurrentContact: (state, action) => {
       state.currentContact = action.payload;
+    },
+    addCurrentDeleteContact: (state, action) => {
+      state.currentDeleteContact = action.payload;
     },
   },
 
@@ -55,6 +59,7 @@ const contactsSlise = createSlice({
         state.error = null;
         const index = state.items.findIndex((contact) => contact.id === action.payload.id);
         state.items.splice(index, 1);
+        state.currentDeleteContact = null;
       })
       .addCase(deleteContact.rejected, handleRejected)
       // Обов'язкове очищення стану контактів при виході користувача з App
@@ -82,4 +87,4 @@ const contactsSlise = createSlice({
 // Експортуємо редюсер
 export const contactsReducer = contactsSlise.reducer;
 
-export const { addCurrentContact } = contactsSlise.actions;
+export const { addCurrentContact, addCurrentDeleteContact } = contactsSlise.actions;

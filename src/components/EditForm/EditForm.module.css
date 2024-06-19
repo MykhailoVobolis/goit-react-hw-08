@@ -18,3 +18,7 @@
   color: #d5294d;
   font-size: 14px;
 }
+
+.btnContainer {
+  display: flex;
+}

@@ -12,7 +12,7 @@ import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading, selectError } from "../../redux/contacts/selectors";
 import { openModal, closeModal } from "../../redux/modal/slice";
 import { selectStateModal } from "../../redux/modal/selectors";
-import { addCurrentContact } from "../../redux/contacts/slice";
+import { addCurrentContact, addCurrentDeleteContact } from "../../redux/contacts/slice";
 
 import ContactFormModal from "../../components/ContactFormModal/ContactFormModal";
 
@@ -36,6 +36,7 @@ export default function ContactsPage() {
   const handleCloseModal = () => {
     dispatch(closeModal());
     dispatch(addCurrentContact(null));
+    dispatch(addCurrentDeleteContact(null));
   };
 
   return (

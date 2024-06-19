@@ -4,8 +4,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { deleteContact } from "../../redux/contacts/operations";
-import { addCurrentContact } from "../../redux/contacts/slice";
+import { addCurrentContact, addCurrentDeleteContact } from "../../redux/contacts/slice";
 import { openModal } from "../../redux/modal/slice";
 import { useDispatch } from "react-redux";
 
@@ -14,9 +13,13 @@ import { stringToColor } from "../../helpers/toColor";
 export default function Contact({ contacts: { id, name, number } }) {
   const dispatch = useDispatch();
 
-  const handleDelete = () => dispatch(deleteContact(id));
   const handleEdit = () => {
     dispatch(addCurrentContact({ id, name, number }));
+    dispatch(openModal());
+  };
+
+  const handleDelete = () => {
+    dispatch(addCurrentDeleteContact({ id }));
     dispatch(openModal());
   };
 
